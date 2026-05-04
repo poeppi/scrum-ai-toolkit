@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrum AI Toolkit — Einordnung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F0E8;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-faint: #8A8078;
+    --rule: #D8D0C4;
+    --amber: #C8860A;
+    --amber-light: #FFF3D4;
+    --green-dark: #1C3A2E;
+    --green-mid: #2D5240;
+    --green-light: #E8F0EC;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+  .wordmark:hover { color: var(--ink); }
+  .site-header .title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .main { max-width: 900px; margin: 0 auto; padding: 64px 48px 100px; }
+
+  .display-heading {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .display-heading em { font-style: italic; color: var(--green-mid); }
+
+  .sub-heading {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-top: 52px;
+    color: var(--ink);
+  }
+
+  p { margin-bottom: 16px; color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .callout {
+    border-left: 3px solid;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.amber { border-color: var(--amber); background: var(--amber-light); }
+  .callout.green { border-color: var(--green-mid); background: var(--green-light); }
+  .callout p { margin-bottom: 0; font-size: 14px; }
+  .callout .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .callout.amber .callout-label { color: var(--amber); }
+  .callout.green .callout-label { color: var(--green-mid); }
+  .callout a { color: var(--green-dark); font-weight: 500; }
+
+  .meta-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    line-height: 1.8;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .meta-note a { color: var(--ink-faint); }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 20px 24px; flex-wrap: wrap; }
+    .main { padding: 40px 24px 80px; }
+    .display-heading { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="./index.html" class="wordmark">← Startseite</a>
+  <span class="title">Scrum AI Toolkit</span>
+  <span class="wordmark">Yvonne Pöppelbaum</span>
+</header>
+
+<main class="main">
+
+  <p class="sub-heading">Einordnung</p>
+  <h1 class="display-heading">Ein nüchterner Überblick<br>für Praktiker, Entscheider<br><em>und Skeptiker</em></h1>
+
+  <h2>Was das Toolkit ist</h2>
+  <p>Der Scrum AI Toolkit besteht aus vier browserbasierten Werkzeugen und einem Pre-Start-Modul, die agile Teams bei wiederkehrenden Alltagsproblemen unterstützen: vergessene Retro-Maßnahmen, unklare User Stories, unstrukturiertes Impediment-Tracking und unerklärliche Velocity-Schwankungen. Die Tools laufen lokal im Browser, speichern keine personenbezogenen Daten auf Servern und sind ohne Backend deploybar. KI macht Muster sichtbar, generiert Fragen und formuliert Hypothesen. Entscheidungen trifft das Tool nicht.</p>
+
+  <h2>Was die einzelnen Tools können</h2>
+  <p><strong>RetroMirror</strong> strukturiert Retrospektiven in vier Pflichtphasen: Maßnahmen-Review des letzten Sprints, Team-Input, Auswahl einer Reflexionsfrage aus einer kuratierten Bibliothek, Maßnahmen-Commit mit Erfolgskriterium. Ein optionaler KI-Spiegel analysiert Muster in den Team-Eingaben: erst nach dem Commit, nicht davor. Eine Kurzskala zur psychologischen Sicherheit deaktiviert den KI-Spiegel, wenn der Wert unter einen definierten Schwellenwert fällt.</p>
+  <p><strong>Story Question Engine</strong> liest eine User Story und ihre Akzeptanzkriterien und generiert genau eine Frage: die mit dem höchsten Klärungswert für das Refinement-Gespräch. Gibt keine Bewertung, keinen Score, keine Verbesserungsvorschläge. Unterscheidet zwischen Discovery-Phase und Planning-ready und passt die Frage entsprechend an. Erkennt automatisch vage Formulierungen in Akzeptanzkriterien, die korrekte Syntax aber keine testbare Aussage haben.</p>
+  <p><strong>ImpedimentRadar</strong> erfasst Impediments, ordnet sie einer fixen Fünf-Kategorien-Taxonomie zu und macht Muster über Sprints hinweg sichtbar. Kein Personenbezug, keine automatische Eskalation. Erkennt nach drei oder mehr Sprints Impediments, die trotz „gelöst"-Markierung im Wortlaut ähnlich wiederkehren.</p>
+  <p><strong>VelocityLens</strong> verknüpft Velocity-Daten mit dokumentierten Sprint-Ereignissen und generiert Hypothesen; explizit als Hypothesen, nicht als Erklärungen. Erkennt automatisch Muster, die auf Goodhart-Optimierung hindeuten: steigende Velocity bei gleichbleibenden oder zunehmenden Impediments.</p>
+
+  <h2>Wie der Ablauf funktioniert</h2>
+  <p>Alle vier Tools folgen derselben Grundstruktur: Das Team gibt zunächst eine eigene Einschätzung ab; der KI-Button bleibt bis dahin technisch gesperrt. Dann erscheint die KI-Analyse oder -Frage. Das Team entscheidet, was davon zutrifft. Die Entscheidung liegt immer beim Team, nie beim Tool.</p>
+  <p>Das Pre-Start-Modul stellt vor dem ersten Einsatz die Frage nach dem aktuellen Schmerz des Teams und leitet daraus ab, welches Tool zuerst passt. Es enthält eine Checkliste der Stellen, die vor dem Einsatz informiert werden müssen, sowie zwei kopierbare Vorlagen für die Kommunikation mit Team und Betriebsrat.</p>
+
+  <h2>Wie die Tools in bestehende Praxis passen</h2>
+  <p>Die meisten Teams nutzen bereits Jira, Linear oder Azure DevOps für Backlog, Sprint-Planung und Velocity-Charts. Dieser Toolkit ersetzt das nicht. Er setzt an der Stelle an, wo diese Tools aufhören: bei der Reflexion über das, was passiert ist.</p>
+  <p><strong>RetroMirror</strong> ersetzt für drei Sprints das bisherige Retro-Format. Kein Parallelbetrieb, kein Doppeleintrag. Wenn es nicht besser läuft als vorher: zurück zum alten Format.</p>
+  <p><strong>Story Question Engine</strong> öffnet man 10 Minuten vor dem Refinement, kopiert eine Story aus Jira hinein und bekommt eine Frage. Danach zurück zu Jira. Minimale Reibung, kein Doppeleintrag.</p>
+  <p><strong>ImpedimentRadar</strong> verlangt Dateneingabe, die in anderen Tools bereits existiert. Das ist echte Reibung. Lohnt sich nur, wenn das bisherige Impediment-Tracking nicht funktioniert. Das ist häufig der Fall, weil Jira dafür nicht gebaut ist. Wer Impediments sowieso nicht systematisch trackt: hier einsteigen.</p>
+  <p><strong>VelocityLens</strong> hat dasselbe Problem: Velocity-Daten aus Jira müssen manuell eingetragen werden. Lohnt sich für Teams, die Velocity-Schwankungen gegenüber dem Management erklären müssen und dafür Kontext brauchen, den Jira nicht speichert.</p>
+
+  <h2>Wo die Grenzen liegen</h2>
+  <p>Die Tools sind auf Teams ausgelegt, die bereits ein Grundmaß an Vertrauen und funktionierende Grundstrukturen haben. Sie strukturieren bestehende Prozesse; kaputte reparieren sie nicht.</p>
+  <p>Impediments werden häufig mündlich benannt, nicht schriftlich erfasst. Die Datenbasis des ImpedimentRadar ist deshalb strukturell unvollständig. Muster, die das Tool erkennt, basieren auf dem, was eingetragen wurde, nicht auf dem, was passiert ist.</p>
+  <p>Story Points sind teamspezifische Relativmaße. VelocityLens erzwingt technisch, dass keine teamübergreifenden Vergleiche möglich sind. Kausalität zwischen Ereignissen und Velocity-Schwankungen kann das Tool nicht herstellen; es produziert Korrelationshypothesen, keine Ursachenanalysen.</p>
+  <p>Die KI-generierte Frage der Story Question Engine ist eine Sprachanalyse, keine Produktstrategie-Einschätzung. Ob eine Story wertvoll ist, kann das Tool nicht beurteilen.</p>
+
+  <h2>Risiken und Herausforderungen in der Anwendung</h2>
+  <p>Der Einführungskontext ist das größte Risiko. Führt das Management die Tools top-down ein oder greift es auf Ergebnisse zu, kehren sich die Schutzmaßnahmen um: Phase-Lock wird als Kontrollmechanismus wahrgenommen, Impediment-Tracking als Surveillance, Velocity-Analyse als Leistungsüberwachung. Technik schützt nicht vor falscher Wahrnehmung.</p>
+  <p>Strategic Filling ist ein weiteres strukturelles Risiko: Teams, die wissen, welche Pflichtfelder ausgefüllt sein müssen, lernen, diese Felder strategisch zu befüllen. Phase-Lock verhindert Anchoring, aber nicht den Druck zur Konformität. In Teams mit Machtgefällen dominiert die lauteste Stimme die Pflicht-Einschätzungen.</p>
+  <p>Interface-Design mildert Automation Bias, eliminiert ihn aber nicht. Teams nehmen KI-Output typischerweise als objektiver wahr als gleichwertig dargestellte menschliche Einschätzungen.</p>
+
+  <div class="callout amber">
+    <div class="callout-label">Betriebsrat &amp; Datenschutz</div>
+    <p>In Organisationen mit Betriebsrat ist die Frage der Mitbestimmungspflicht nach BetrVG §87 Abs. 1 Nr. 6 zu klären, bevor der erste Einsatz stattfindet. Die Schwelle zur Leistungsüberwachung beurteilt der Betriebsrat, nicht das technische Design.</p>
+  </div>
+
+  <h2>Was man beachten sollte</h2>
+  <p>Klärt drei Fragen, bevor ein Team beginnt: Wer hat Zugriff auf die Ergebnisse; ist das schriftlich festgehalten? Hat der Betriebsrat die Tools prüfen können? Hat das Team explizit zugestimmt, nicht nur zugehört?</p>
+  <p>Der Einstieg über ein freiwilliges Einzelteam für drei Sprints ist risikoärmer als eine Einführung im ganzen Unternehmen. Drei Sprints, dann Teamentscheidung: weiter, anpassen oder stoppen. Vereinbart diesen Zeitpunkt vor dem ersten Sprint, nicht danach.</p>
+
+  <h2>Was ein kritischer Beobachter zur Einordnung sagen würde</h2>
+  <p>Der Toolkit adressiert reale Probleme und tut das methodisch sorgfältiger als die meisten vergleichbaren Angebote. Dass Grenzen explizit benannt werden (Goodhart-Warnung in VelocityLens, Anonymitäts-Hinweis in RetroMirror, Stopp-Regeln im Pre-Start-Modul) ist ungewöhnlich für ein Tool, das sich verkaufen möchte.</p>
+  <p>Kein Tool verändert Organisationskultur. Die Forschungslage ist klar: 70 Prozent der Probleme bei KI-Adoption liegen bei Menschen und Prozessen, nicht bei der Technologie. Dasselbe gilt für agile Adoption.</p>
+  <p>Der stärkste Einwand gegen den gesamten Ansatz ist strategischer Natur: Die vier Tools lösen Symptome. Die Ursachen liegen in Entscheidungsstrukturen, Führungsverhalten und Organisationsdesign. Das macht den Toolkit nicht wertlos, schränkt aber ein, was er leisten kann. Das sollte jede:r wissen, die ihn einsetzt.</p>
+
+  <div class="callout green">
+    <div class="callout-label">Einstieg</div>
+    <p>Noch nicht durch das Pre-Start-Modul? Es führt durch Schmerz-Check, Checkliste, Guardrails und Kommunikationsvorlagen. <a href="./scrum_ai_prestart.html">Zum Pre-Start-Modul →</a></p>
+  </div>
+
+  <p class="meta-note">
+    Scrum AI Toolkit · Yvonne Pöppelbaum · Version 1.0 · Mai 2026<br>
+    Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a> · Nutzung und Weitergabe erlaubt mit Namensnennung.<br>
+    Kontakt: Yvonne Pöppelbaum, Hamburg · <a href="https://github.com/poeppi">github.com/poeppi</a> · <a href="./impressum.html">Impressum</a>
+  </p>
+
+</main>
+</body>
+</html>

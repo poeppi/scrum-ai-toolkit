@@ -1,0 +1,16 @@
+# API Keys — niemals committen
+**/.env.local
+**/.env
+
+# Dependencies
+**/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code workspace
+.claude/
+
+# Interne Entwicklungsdokumente
+HANDOFF.md

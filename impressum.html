@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Scrum AI Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F0E8;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-faint: #8A8078;
+    --rule: #D8D0C4;
+    --green-dark: #1C3A2E;
+    --green-mid: #2D5240;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+  .wordmark:hover { color: var(--ink); }
+  .site-header .title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .main { max-width: 680px; margin: 0 auto; padding: 64px 48px 100px; }
+
+  .sub-heading {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 48px;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  p { color: var(--ink-soft); font-size: 15px; line-height: 1.7; margin-bottom: 8px; }
+  p strong { color: var(--ink); font-weight: 500; }
+  a { color: var(--green-dark); }
+
+  .block {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .block:first-of-type { border-top: 1px solid var(--rule); }
+
+  .meta-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    line-height: 1.8;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .meta-note a { color: var(--ink-faint); }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 20px 24px; flex-wrap: wrap; }
+    .main { padding: 40px 24px 80px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="./index.html" class="wordmark">← Startseite</a>
+  <span class="title">Scrum AI Toolkit</span>
+  <span class="wordmark">Yvonne Pöppelbaum</span>
+</header>
+
+<main class="main">
+
+  <p class="sub-heading">Rechtliches</p>
+  <h1>Impressum</h1>
+
+  <div class="block">
+    <h2>Angaben gemäß §5 TMG</h2>
+    <p><strong>Yvonne Pöppelbaum</strong></p>
+    <p>Learning Architect · Journalistin · Facilitatorin</p>
+    <p>Hoheluftchaussee 53a<br>20253 Hamburg</p>
+  </div>
+
+  <div class="block">
+    <h2>Kontakt</h2>
+    <p>E-Mail: <span id="impressum-mail"></span></p>
+    <script>
+      (function() {
+        var u = 'impressum', d = 'poeppelbaum.eu';
+        var el = document.getElementById('impressum-mail');
+        el.innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
+      })();
+    </script>
+  </div>
+
+  <div class="block">
+    <h2>Verantwortlich für den Inhalt nach §55 Abs. 2 RStV</h2>
+    <p>Yvonne Pöppelbaum<br>
+    Hoheluftchaussee 53a<br>
+    20253 Hamburg</p>
+  </div>
+
+  <div class="block">
+    <h2>Urheberrecht</h2>
+    <p>Die Inhalte dieses Projekts sind lizenziert unter <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>. Nutzung und Weitergabe erlaubt mit Namensnennung: Yvonne Pöppelbaum, Scrum AI Toolkit.</p>
+    <p>Der Quellcode steht auf GitHub zur Verfügung.</p>
+  </div>
+
+  <div class="block">
+    <h2>Haftungsausschluss</h2>
+    <p>Die Inhalte dieses Toolkits wurden sorgfältig erstellt. Eine Gewähr für Vollständigkeit, Richtigkeit oder Aktualität übernehme ich nicht. Der Einsatz der Tools in Organisationen liegt in der Verantwortung der nutzenden Personen. Hinweise zu Grenzen und Risiken finden sich auf der <a href="./einordnung.html">Einordnungsseite</a>.</p>
+  </div>
+
+  <div class="block">
+    <h2>Externe Links</h2>
+    <p>Dieses Projekt enthält Links zu externen Websites. Für deren Inhalte übernehme ich keine Haftung. Für die Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+  </div>
+
+  <p class="meta-note">
+    Scrum AI Toolkit · Yvonne Pöppelbaum · Version 1.0 · Mai 2026<br>
+    Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a> · Nutzung und Weitergabe erlaubt mit Namensnennung.<br>
+    Kontakt: Yvonne Pöppelbaum, Hamburg · <a href="https://github.com/poeppi">github.com/poeppi</a>
+  </p>
+
+</main>
+</body>
+</html>

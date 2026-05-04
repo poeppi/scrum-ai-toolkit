@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrum AI Toolkit — Pre-Start</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F0E8;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-faint: #8A8078;
+    --rule: #D8D0C4;
+    --amber: #C8860A;
+    --amber-light: #FFF3D4;
+    --green-dark: #1C3A2E;
+    --green-mid: #2D5240;
+    --green-light: #E8F0EC;
+    --red-dark: #8B1A1A;
+    --red-light: #FDEAEA;
+    --blue-dark: #1A2E5A;
+    --blue-light: #EAF0FD;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .site-header .wordmark {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .site-header .title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  /* ── NAV PILLS ── */
+  .nav-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+    padding: 0 48px;
+  }
+  .nav-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border: none;
+    background: none;
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .nav-pill:hover { color: var(--ink); }
+  .nav-pill.active {
+    color: var(--green-dark);
+    border-bottom-color: var(--green-dark);
+  }
+
+  /* ── MAIN ── */
+  .main { max-width: 860px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ── TYPOGRAPHY ── */
+  .display-heading {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin-bottom: 12px;
+  }
+  .display-heading em { font-style: italic; color: var(--green-mid); }
+
+  .sub-heading {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-top: 48px;
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    margin-top: 32px;
+  }
+
+  p { margin-bottom: 16px; color: var(--ink-soft); font-size: 15px; }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .rule { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-left: 3px solid;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.amber { border-color: var(--amber); background: var(--amber-light); }
+  .callout.green { border-color: var(--green-mid); background: var(--green-light); }
+  .callout.red { border-color: var(--red-dark); background: var(--red-light); }
+  .callout.blue { border-color: var(--blue-dark); background: var(--blue-light); }
+  .callout p { margin-bottom: 0; font-size: 14px; }
+  .callout .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .callout.amber .callout-label { color: var(--amber); }
+  .callout.green .callout-label { color: var(--green-mid); }
+  .callout.red .callout-label { color: var(--red-dark); }
+  .callout.blue .callout-label { color: var(--blue-dark); }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; margin: 20px 0; }
+  .checklist li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .check-box {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--rule);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .checklist .check-box.checked {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+  }
+  .checklist .check-box.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .checklist li .check-content strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+  .checklist li .check-content .ref {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: .06em;
+  }
+
+  /* ── PAIN CARDS ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  @media (max-width: 640px) { .pain-grid { grid-template-columns: 1fr; } }
+
+  .pain-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s, transform .1s;
+    position: relative;
+    background: white;
+  }
+  .pain-card:hover { border-color: var(--ink-soft); transform: translateY(-1px); }
+  .pain-card.selected {
+    border-color: var(--green-dark);
+    background: var(--green-light);
+  }
+  .pain-card.warning-card.selected {
+    border-color: var(--red-dark);
+    background: var(--red-light);
+  }
+  .pain-card .pain-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .pain-card.selected .pain-tag { color: var(--green-mid); }
+  .pain-card.warning-card.selected .pain-tag { color: var(--red-dark); }
+  .pain-card .pain-quote {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .pain-card .pain-detail {
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+  .pain-card .select-indicator {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--rule);
+    border-radius: 50%;
+    transition: all .15s;
+  }
+  .pain-card.selected .select-indicator {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+  }
+  .pain-card.warning-card.selected .select-indicator {
+    background: var(--red-dark);
+    border-color: var(--red-dark);
+  }
+  .pain-card.selected .select-indicator::after,
+  .pain-card.warning-card.selected .select-indicator::after {
+    content: '✓';
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .pain-instruction {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── RESULT ── */
+  .result-box {
+    border: 1.5px solid var(--green-dark);
+    border-radius: 6px;
+    padding: 28px;
+    background: white;
+    margin-top: 24px;
+    display: none;
+  }
+  .result-box.visible { display: block; }
+  .result-box.warning-result {
+    border-color: var(--red-dark);
+    background: var(--red-light);
+  }
+
+  .result-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .result-box:not(.warning-result) .result-label { color: var(--green-mid); }
+  .result-box.warning-result .result-label { color: var(--red-dark); }
+
+  .result-heading {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .tool-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .tool-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 16px;
+    background: var(--green-light);
+    border-radius: 4px;
+    border-left: 3px solid var(--green-mid);
+  }
+  .tool-step .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green-mid);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tool-step .step-tool {
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .tool-step .step-why {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .consolidation-note {
+    background: var(--amber-light);
+    border: 1px solid #E8C87A;
+    border-radius: 4px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+
+  /* ── STOPP-REGELN ── */
+  .stopp-list { list-style: none; margin: 20px 0; }
+  .stopp-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+  .stopp-item:last-child { border-bottom: none; }
+  .stopp-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--red-dark);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .stopp-item strong { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; font-size: 14px; }
+  .stopp-item p { font-size: 13px; margin-bottom: 0; }
+
+  /* ── LINK LIST ── */
+  .link-list { list-style: none; margin: 16px 0; }
+  .link-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .link-list li:last-child { border-bottom: none; }
+  .link-list a {
+    color: var(--green-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .link-list a:hover { text-decoration: underline; }
+  .link-list .link-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: opacity .2s, transform .1s;
+  }
+  .btn:hover { opacity: .85; transform: translateY(-1px); }
+  .btn-primary { background: var(--green-dark); color: white; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--rule); }
+  .btn-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+  /* ── FORWARD TEMPLATE ── */
+  .template-box {
+    background: white;
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    white-space: pre-line;
+    font-family: var(--sans);
+  }
+  .copy-btn {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    background: var(--green-dark);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    margin-top: 8px;
+  }
+  .copy-btn:hover { opacity: .8; }
+
+  /* ── FOOTER ── */
+  .screen-footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    line-height: 1.8;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-bar {
+    height: 2px;
+    background: var(--rule);
+    margin-bottom: 0;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--green-dark);
+    transition: width .4s ease;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="progress" style="width:20%"></div></div>
+
+<header class="site-header">
+  <a href="./index.html" class="wordmark" style="text-decoration:none; color:var(--ink-faint);">← Startseite</a>
+  <span class="wordmark">Scrum AI Toolkit</span>
+  <span class="title">Pre-Start</span>
+</header>
+
+<nav class="nav-bar">
+  <button class="nav-pill active" onclick="goTo(0,this)">Einstieg</button>
+  <button class="nav-pill" onclick="goTo(1,this)">Welcher Schmerz?</button>
+  <button class="nav-pill" onclick="goTo(2,this)">Checkliste</button>
+  <button class="nav-pill" onclick="goTo(3,this)">Guardrails</button>
+  <button class="nav-pill" onclick="goTo(4,this)">Weiterleiten</button>
+  <button class="nav-pill" onclick="goTo(5,this)">Quellen</button>
+</nav>
+
+<main class="main">
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 0: EINSTIEG
+  ══════════════════════════════════════════════ -->
+  <div class="screen active" id="screen-0">
+    <p class="sub-heading">Vor dem ersten Sprint</p>
+    <h1 class="display-heading">Dieses Modul liest du,<br><em>bevor</em> du ein Tool startest.</h1>
+
+    <p>Der Scrum AI Toolkit besteht aus vier Tools: <strong>RetroMirror, Story Question Engine, ImpedimentRadar und VelocityLens.</strong> Sie erzwingen Reflexion statt Effizienz zu simulieren. Das ist ein Unterschied, der in der Praxis zählt.</p>
+
+    <p>Dieses Pre-Start-Modul erklärt, warum die Tools so gebaut sind wie sie gebaut sind, welche Voraussetzungen du erfüllen musst, welche Stellen in deiner Organisation du informieren musst und welchen Schmerz du gerade hast. Die Antwort auf die letzte Frage bestimmt, welches Tool du zuerst anfasst.</p>
+
+    <div class="callout amber">
+      <div class="callout-label">Wichtigste Prämisse</div>
+      <p>Kein Tool repariert eine dysfunktionale Teamkultur. Diese Tools sind für Teams, die bereits grundlegendes Vertrauen haben — und strukturierter werden wollen. Wenn das Grundvertrauen fehlt, ist ein erfahrener Facilitator der richtige erste Schritt.</p>
+    </div>
+
+    <hr class="rule">
+
+    <h2>Warum die Tools so gebaut sind, wie sie gebaut sind</h2>
+
+    <p>Alle vier Tools teilen drei Designprinzipien, die nicht verhandelbar sind:</p>
+
+    <p><strong>Erstens: KI kommt nach der menschlichen Entscheidung, nie davor.</strong> Sobald KI-Output zuerst erscheint, dominiert er die Diskussion: Das nennt sich Anchoring Bias. Die Tools sind so gebaut, dass Teams erst eine eigene Einschätzung abgeben müssen, bevor die KI-Analyse erscheint.</p>
+
+    <p><strong>Zweitens: Kein Personenbezug, kein Management-Export.</strong> Die Grenze steckt im Code, nicht in einer Richtlinie. Kein Datenmodell dieser Tools enthält ein Namensfeld. Kein Export gibt Vollprotokolle aus, nur Maßnahmen-Karten.</p>
+
+    <p><strong>Drittens: KI ist Gesprächsstarter, nicht Autorität.</strong> RetroMirror gibt keine Handlungsempfehlungen nach dem Commit. VelocityLens nennt seine Outputs explizit „Hypothesen". Die Story Question Engine stellt eine Frage, antwortet aber nicht auf die Team-Antwort.</p>
+
+    <div class="callout blue">
+      <div class="callout-label">Moderationshinweis: wer tippt, prägt</div>
+      <p>Alle vier Tools laufen auf einem Gerät, das eine Person bedient. Das schafft ein Risiko: Wer tippt, beeinflusst, was eingetragen wird, auch ohne das zu wollen. Gegenmaßnahme: Alle Teammitglieder notieren erst 2 Minuten still ihre Einschätzung, auf Post-its oder in einer Notiz-App. Dann wird gemeinsam eingetragen. Das kostet 2 Minuten und schützt vor der lautesten Stimme im Raum.</p>
+    </div>
+
+    <h2>Wie die Tools in eure Praxis passen</h2>
+
+    <p>Die meisten Teams nutzen bereits Jira, Linear oder Azure DevOps für Backlog, Sprint-Planung und Velocity-Charts. Dieser Toolkit ersetzt das nicht. Er setzt an der Stelle an, wo diese Tools aufhören: bei der Reflexion über das, was passiert ist.</p>
+
+    <p><strong>RetroMirror</strong> ersetzt für drei Sprints das bisherige Retro-Format — Miro, EasyRetro oder eine Moderationskarte. Kein Parallelbetrieb, kein Doppeleintrag. Wenn es nicht besser läuft als vorher: zurück zum alten Format.</p>
+
+    <p><strong>Story Question Engine</strong> öffnet man 10 Minuten vor dem Refinement, kopiert eine Story aus Jira hinein und bekommt eine Frage. Danach zurück zu Jira. Minimale Reibung, kein Doppeleintrag.</p>
+
+    <p><strong>ImpedimentRadar</strong> verlangt Dateneingabe, die in anderen Tools bereits existiert. Das ist echte Reibung. Lohnt sich nur, wenn das bisherige Impediment-Tracking nicht funktioniert. Das ist häufig der Fall, weil Jira dafür nicht gebaut ist. Wer Impediments sowieso nicht systematisch trackt: hier einsteigen.</p>
+
+    <p><strong>VelocityLens</strong> hat dasselbe Problem: Velocity-Daten aus Jira müssen manuell eingetragen werden. Lohnt sich für Teams, die Velocity-Schwankungen gegenüber dem Management erklären müssen und dafür Kontext brauchen, den Jira nicht speichert.</p>
+
+    <div class="callout green">
+      <div class="callout-label">Für wen ist dieses Modul</div>
+      <p>Für den Scrum Master oder L&D-Verantwortlichen, der die Tools einführt. Für das Team, das die Tools nutzen wird: besonders der Abschnitt „Welcher Schmerz?". Für den Betriebsrat und die datenschutzbeauftragte Person, die eine Einschätzung abgeben müssen.</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(1, document.querySelectorAll('.nav-pill')[1])">Weiter: Welcher Schmerz? →</button>
+    </div>
+
+    <div class="screen-footer">
+      Scrum AI Toolkit · Pre-Start-Modul · Version 1.0 · Mai 2026<br>
+      Designprinzipien: Anchoring Bias (Tversky &amp; Kahneman 1974) · Automation Bias (Dhami et al.) · BetrVG §87 Abs. 1 Nr. 6 · DSGVO Art. 5
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 1: WELCHER SCHMERZ?
+  ══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-1">
+    <p class="sub-heading">Schritt 1 von 4</p>
+    <h1 class="display-heading">Welchen Schmerz<br>habt ihr <em>gerade</em>?</h1>
+
+    <p>Wählt die Situationen aus, die auf euer Team zutreffen. Mehrfachauswahl möglich. Die Empfehlung am Ende zeigt, mit welchem Tool ihr beginnt — und warum.</p>
+
+    <p class="pain-instruction">Klickt auf alles, das klingt wie bei euch.</p>
+
+    <div class="pain-grid">
+
+      <div class="pain-card" data-cluster="retro" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">Retrospektive</div>
+        <div class="pain-quote">„Wir reden in jeder Retro über ähnliche Themen. Wir formulieren Maßnahmen. Beim nächsten Mal fragt niemand mehr danach."</div>
+        <div class="pain-detail">Retro-Maßnahmen werden nicht committed oder nicht überprüft.</div>
+      </div>
+
+      <div class="pain-card" data-cluster="story" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">Refinement &amp; Planning</div>
+        <div class="pain-quote">„Im Planning klären wir noch Grundsatzfragen. Schätzungen liegen daneben — nicht weil das Team schlecht schätzt, sondern weil die Story unklar war."</div>
+        <div class="pain-detail">Stories sind beim Eintritt ins Planning nicht bereit.</div>
+      </div>
+
+      <div class="pain-card" data-cluster="impediment" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">Impediments</div>
+        <div class="pain-quote">„Dieselben Blocker tauchen sprint-übergreifend auf. Wir benennen sie im Daily, aber niemand trackt, was strukturell wiederkehrt."</div>
+        <div class="pain-detail">Impediments verschwinden im Rauschen statt gelöst zu werden.</div>
+      </div>
+
+      <div class="pain-card" data-cluster="velocity" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">Velocity</div>
+        <div class="pain-quote">„Unsere Velocity schwankt, aber wir können nicht erklären warum. Wenn jemand fragt, fehlt uns der Kontext."</div>
+        <div class="pain-detail">Keine systematische Dokumentation der Ereignisse pro Sprint.</div>
+      </div>
+
+      <div class="pain-card warning-card" data-cluster="safety" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">⚠ Warnsignal</div>
+        <div class="pain-quote">„Unsere Retros funktionieren nicht, weil kaum jemand offen redet. Es gibt Themen, die nie auf den Tisch kommen."</div>
+        <div class="pain-detail">Psychologische Sicherheit ist die Voraussetzung — kein Tool ersetzt sie.</div>
+      </div>
+
+      <div class="pain-card warning-card" data-cluster="mgmt" onclick="toggleCard(this)">
+        <div class="select-indicator"></div>
+        <div class="pain-tag">⚠ Warnsignal</div>
+        <div class="pain-quote">„Wir werden nach Velocity-Forecasts, Produktivitätsnachweisen oder Team-Vergleichen gefragt."</div>
+        <div class="pain-detail">Diese Tools sind für diesen Kontext nicht gebaut. Erst Klärung, dann Tool.</div>
+      </div>
+
+    </div>
+
+    <div class="result-box" id="result-box">
+      <div class="result-label" id="result-label">Empfehlung</div>
+      <div class="result-heading" id="result-heading"></div>
+      <div id="result-body"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(2, document.querySelectorAll('.nav-pill')[2])">Weiter: Checkliste →</button>
+      <button class="btn btn-ghost" onclick="goTo(0, document.querySelectorAll('.nav-pill')[0])">← Zurück</button>
+    </div>
+
+    <div class="screen-footer">
+      Routing-Logik basiert auf: Scrum Guide 2020 (Schwaber &amp; Sutherland) · Amy Edmondson: The Fearless Organization (2018) · Goodhart's Law (Strathern 1997)
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 2: CHECKLISTE
+  ══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-2">
+    <p class="sub-heading">Schritt 2 von 4</p>
+    <h1 class="display-heading">Wer muss informiert<br><em>werden</em> — und warum?</h1>
+
+    <p>Diese Checkliste ist keine Formalität: Jeder Punkt hat eine rechtliche oder organisatorische Grundlage. Die Begründungen stehen dabei, damit ihr sie im Gespräch mit den jeweiligen Stellen nutzen könnt.</p>
+
+    <div class="callout red">
+      <div class="callout-label">Reihenfolge beachten</div>
+      <p>Betriebsrat und Datenschutz kommen vor der ersten Nutzung — nicht parallel, nicht danach. Das ist kein bürokratisches Detail. Ein Tool, das ohne Betriebsrat-Einbindung eingeführt wird, kann jederzeit gestoppt werden.</p>
+    </div>
+
+    <ul class="checklist" id="checklist">
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>Betriebsrat informieren und Rückmeldung einholen</strong>
+          Technische Einrichtungen zur Überwachung von Leistung oder Verhalten sind mitbestimmungspflichtig. Die Tools sind so gebaut, dass sie diese Schwelle technisch nicht überschreiten — aber die Einschätzung trifft der Betriebsrat, nicht der Entwickler. Frühzeitige Einbindung verhindert spätere Blockaden und schafft Vertrauen.
+          <span class="ref">Rechtsgrundlage: BetrVG §87 Abs. 1 Nr. 6 · Orientierung: DGB-Handlungshilfe „KI und Mitbestimmung" (2023) · INQA-Leitfaden KI-Einführung</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>Datenschutzbeauftragte:n informieren</strong>
+          Die Tools verarbeiten keine personenbezogenen Daten im technischen Sinne — aber diese Einschätzung muss die DSB-Person treffen, nicht das Team. Für das Gespräch: alle Tools laufen lokal (localStorage), kein Backend, kein Personenbezug im Datenmodell, API-Calls gehen anonymisiert an Claude API.
+          <span class="ref">Rechtsgrundlage: DSGVO Art. 5 (Datensparsamkeit, Zweckbindung) · Art. 35 (DPIA bei systematischer Verarbeitung von Beschäftigtendaten)</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>Management-Frage schriftlich klären</strong>
+          Eine einzige Frage, die schriftlich beantwortet werden muss, bevor die Tools eingeführt werden: „Werden Velocity-Daten, Impediment-Logs oder Retro-Ergebnisse aus diesen Tools jemals in Management-Reporting einfließen?" Wenn die Antwort Ja ist, sind die Tools in ihrer jetzigen Form für diese Organisation nicht geeignet.
+          <span class="ref">Grundlage: Goodhart's Law (Strathern 1997) · Accenture-Befunde zu Command-and-Control-Effekten durch KI-Monitoring in agilen Teams</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>Team aktiv zustimmen lassen — nicht nur informieren</strong>
+          Informiert werden und zustimmen ist nicht dasselbe. Das Team liest dieses Pre-Start-Modul gemeinsam — besonders „Welcher Schmerz?" und „Guardrails". Jedes Teammitglied hat das Recht, Nein zu sagen. Kein Tool ist wichtiger als das Vertrauen im Team.
+          <span class="ref">Grundlage: Self-Determination Theory (Deci &amp; Ryan) · Bergdahl et al. 2023: Autonomy &amp; AI Adoption</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>IT / Sicherheit kurz einbeziehen</strong>
+          API-Key-Handling (.env.local, nicht im Build), keine Backend-Logs, localStorage-Datenhaltung. Die IT muss das nicht aufwendig prüfen — aber sie sollte wissen, dass ein API-Key verwaltet wird und welche Daten den Browser verlassen.
+          <span class="ref">Technisch: Anthropic API Datenschutzrichtlinien · DSGVO Art. 28 (Auftragsverarbeitung)</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div class="check-content">
+          <strong>Evaluationszeitpunkt festlegen — vor Sprint 1</strong>
+          Nach drei Sprints bewertet das Team gemeinsam: weiter / anpassen / stoppen. Dieser Zeitpunkt wird jetzt vereinbart — nicht nach Sprint 3, wenn Gewohnheit stärker ist als Reflexion.
+          <span class="ref">Grundlage: Kirkpatrick-Modell (Transfer-Ebene) · PwC Agentic AI Transformation Report 2025: iterative Adoption</span>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(3, document.querySelectorAll('.nav-pill')[3])">Weiter: Guardrails →</button>
+      <button class="btn btn-ghost" onclick="goTo(1, document.querySelectorAll('.nav-pill')[1])">← Zurück</button>
+    </div>
+
+    <div class="screen-footer">
+      Rechtsquellen: BetrVG §87 Abs. 1 Nr. 6 (gesetze-im-internet.de) · DSGVO Art. 5, 28, 35 (eur-lex.europa.eu) · EU AI Act Anhang III Nr. 4 (eur-lex.europa.eu)
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 3: GUARDRAILS
+  ══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-3">
+    <p class="sub-heading">Schritt 3 von 4</p>
+    <h1 class="display-heading">Was tun, wenn<br>etwas <em>nicht stimmt?</em></h1>
+
+    <p>Die Tools haben technische Schutzmaßnahmen, aber Technik schützt nicht vor allem. Diese Stopp-Regeln gelten für alle vier Tools; sie gelten sofort, nicht nach Rücksprache.</p>
+
+    <h2>Die drei Stopp-Regeln</h2>
+
+    <ul class="stopp-list">
+      <li class="stopp-item">
+        <span class="stopp-num">01</span>
+        <div>
+          <strong>Wenn Velocity-Daten in ein Management-Meeting gehen.</strong>
+          <p>Das Tool wird sofort deaktiviert. Kein gradueller Ausstieg. Das Team entscheidet gemeinsam, ob es unter geänderten Bedingungen neu gestartet wird — aber diese Entscheidung trifft das Team, nicht das Management.</p>
+        </div>
+      </li>
+      <li class="stopp-item">
+        <span class="stopp-num">02</span>
+        <div>
+          <strong>Wenn ein Teammitglied das Gefühl hat, beobachtet zu werden.</strong>
+          <p>Nicht: wenn es nachgewiesen ist. Wenn das Gefühl da ist. Vertrauen ist die Voraussetzung für funktionierende Retros. Ein Werkzeug, das Misstrauen erzeugt, hat seinen Zweck verfehlt, unabhängig davon, was die Architektur sagt.</p>
+        </div>
+      </li>
+      <li class="stopp-item">
+        <span class="stopp-num">03</span>
+        <div>
+          <strong>Wenn der Betriebsrat Bedenken äußert, die nicht ausgeräumt werden können.</strong>
+          <p>Nicht umgehen. Nicht technisch erklären, bis die Bedenken schweigen. Stopp — und dann Gespräch.</p>
+        </div>
+      </li>
+    </ul>
+
+    <hr class="rule">
+
+    <h2>Was die Tools dürfen — und was nicht</h2>
+
+    <div class="callout green">
+      <div class="callout-label">Hilfreich</div>
+      <p>Teams, die bereits funktionierende Grundstruktur haben und strukturierter werden wollen. L&D-Kontexte, in denen KI-Kompetenz durch echte Nutzung aufgebaut wird. Scrum Master, die Retro-Muster über Sprints hinweg sichtbar machen wollen. Teams, die Impediments systematischer tracken wollen als es Jira erlaubt.</p>
+    </div>
+
+    <div class="callout red">
+      <div class="callout-label">Vermeiden</div>
+      <p>Organisationen im akuten Vertrauenscrisis-Modus. Einführung ohne Betriebsrat-Abstimmung in mitbestimmungspflichtigen Organisationen. Management-getriebene Einführung ohne Team-Opt-in. Kontexte, in denen Velocity bereits als externer KPI genutzt wird. Teams unter drei Personen — Anonymität ist dort strukturell unmöglich.</p>
+    </div>
+
+    <hr class="rule">
+
+    <h2>Ausstiegs-Protokoll</h2>
+
+    <p>Was passiert mit den Daten, wenn ein Team die Tools nicht mehr nutzt? Technische Antwort: localStorage des Browsers löschen, fertig. Keine Daten liegen auf Servern. Die API-Calls an Claude enthalten keine persistenten Identifikatoren.</p>
+
+    <p>Praktische Antwort: Das Team bespricht beim letzten Einsatz gemeinsam, welche Erkenntnisse als Teamwissen mitgenommen werden sollen. Danach: Browser-Daten löschen, API-Key rotieren.</p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(4, document.querySelectorAll('.nav-pill')[4])">Weiter: Weiterleiten →</button>
+      <button class="btn btn-ghost" onclick="goTo(2, document.querySelectorAll('.nav-pill')[2])">← Zurück</button>
+    </div>
+
+    <div class="screen-footer">
+      Stopp-Regeln basieren auf: Bainbridge Ironies of Automation (1983) · Edmondson Psychological Safety (1999) · BetrVG §87 Abs. 1 Nr. 6
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 4: WEITERLEITEN
+  ══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-4">
+    <p class="sub-heading">Schritt 4 von 4</p>
+    <h1 class="display-heading">Vorlage zum<br><em>Weiterleiten</em></h1>
+
+    <p>Zwei Texte, die ihr direkt verwenden könnt: einer für das Team, einer für Betriebsrat und Datenschutz. Klickt auf „Kopieren" und fügt den Text in eine E-Mail oder Slack ein.</p>
+
+    <h2>Für das Team</h2>
+
+    <div class="template-box" id="team-template">Hallo zusammen,
+
+ich möchte uns vier digitale Werkzeuge vorstellen, die unsere Scrum-Praxis unterstützen können — ohne uns zu überwachen oder Entscheidungen abzunehmen.
+
+Die vier Tools heißen RetroMirror, Story Question Engine, ImpedimentRadar und VelocityLens. Jedes adressiert ein konkretes Problem: fehlende Retro-Maßnahmen-Accountability, unklare Stories im Planning, wiederkehrende Impediments und unerklärliche Velocity-Schwankungen.
+
+Wichtig vorab:
+- Die Tools laufen lokal. Keine Daten gehen an einen Server außer anonymisiert an die KI-API.
+- Kein Personenbezug wird gespeichert.
+- Management hat keinen Zugriff auf Ergebnisse. Das ist technisch sichergestellt.
+- Jede:r von uns kann Nein sagen. Das Tool läuft nur, wenn alle mitmachen.
+
+Ich würde gerne 15 Minuten im nächsten Team-Meeting nutzen, um das Pre-Start-Modul gemeinsam durchzugehen — besonders die Frage „Welchen Schmerz haben wir gerade?" Die Antwort bestimmt, welches Tool wir zuerst ausprobieren.
+
+Wenn jemand Bedenken hat, bitte direkt ansprechen. Das ist kein Projekt, das wir gegen das Team durchsetzen.</div>
+    <button class="copy-btn" onclick="copyText('team-template', this)">Kopieren</button>
+
+    <h2>Für Betriebsrat und Datenschutz</h2>
+
+    <div class="template-box" id="br-template">Betreff: Information zur geplanten Nutzung von KI-unterstützten Scrum-Tools
+
+Sehr geehrte/r [Name],
+
+ich möchte euch/Sie über vier digitale Werkzeuge informieren, die unsere Scrum-Praxis unterstützen sollen, und eure/Ihre Einschätzung einholen, bevor wir beginnen.
+
+Die Tools (RetroMirror, Story Question Engine, ImpedimentRadar, VelocityLens) unterstützen Retrospektiven, Story-Refinement, Impediment-Tracking und Velocity-Analyse. Sie laufen lokal im Browser — es gibt kein Backend, keine Server-Logs.
+
+Datenschutz-relevante Punkte:
+- Kein Personenbezug im Datenmodell (kein Namensfeld im Code)
+- Daten liegen ausschließlich im localStorage des genutzten Geräts
+- API-Calls gehen anonymisiert an Anthropic Claude API (Auftragsverarbeitung nach DSGVO Art. 28)
+- Kein Management-Export vorgesehen; nur Maßnahmen-Karten (3 Zeilen)
+- Kein Automatismus für Leistungsüberwachung oder Eskalation
+
+Zur Einschätzung nach BetrVG §87 Abs. 1 Nr. 6:
+Die Tools sind so konzipiert, dass sie keine Verhaltens- oder Leistungsüberwachung ermöglichen. Wir legen die technische Dokumentation gerne vor und stehen für ein Gespräch zur Verfügung.
+
+Wir möchten erst starten, wenn ihr/Sie die Tools prüfen konntet und eine Rückmeldung gegeben habt.
+
+Mit freundlichen Grüßen
+[Name]</div>
+    <button class="copy-btn" onclick="copyText('br-template', this)">Kopieren</button>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(5, document.querySelectorAll('.nav-pill')[5])">Weiter: Quellen →</button>
+      <button class="btn btn-ghost" onclick="goTo(3, document.querySelectorAll('.nav-pill')[3])">← Zurück</button>
+    </div>
+
+    <div class="screen-footer">
+      Vorlagen zur freien Verwendung. Texte vor dem Versand an euren spezifischen Kontext anpassen.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 5: QUELLEN
+  ══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-5">
+    <p class="sub-heading">Rechtliche &amp; methodische Grundlagen</p>
+    <h1 class="display-heading">Quellen &amp;<br><em>offizielle Dokumente</em></h1>
+
+    <p>Alle verlinkbaren Quellen, die für Gespräche mit Betriebsrat, Datenschutz und Management relevant sind.</p>
+
+    <h2>Recht &amp; Regulierung</h2>
+    <ul class="link-list">
+      <li>
+        <a href="https://www.gesetze-im-internet.de/betrvg/__87.html" target="_blank">BetrVG §87 Abs. 1 Nr. 6</a>
+        <span class="link-note">Mitbestimmung bei technischen Überwachungseinrichtungen · gesetze-im-internet.de</span>
+      </li>
+      <li>
+        <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689" target="_blank">EU AI Act — Verordnung (EU) 2024/1689</a>
+        <span class="link-note">Volltext · Anhang III Nr. 4: Hochrisiko-KI im Beschäftigungskontext · eur-lex.europa.eu</span>
+      </li>
+      <li>
+        <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32016R0679" target="_blank">DSGVO — Verordnung (EU) 2016/679</a>
+        <span class="link-note">Art. 5 (Grundsätze) · Art. 28 (Auftragsverarbeitung) · Art. 35 (DPIA) · eur-lex.europa.eu</span>
+      </li>
+    </ul>
+
+    <h2>Praxisleitfäden</h2>
+    <ul class="link-list">
+      <li>
+        <a href="https://www.inqa.de/DE/themen/kuenstliche-intelligenz/ki-einfuehrung.html" target="_blank">INQA — KI-Einführung in der Praxis</a>
+        <span class="link-note">Initiative Neue Qualität der Arbeit · Leitfaden zur KI-Einführung und Mitbestimmung</span>
+      </li>
+      <li>
+        <a href="https://www.dgb.de/themen/++co++5e8c1f00-6e7a-11e8-b72d-52540088cada" target="_blank">DGB — KI und Mitbestimmung</a>
+        <span class="link-note">Handlungshilfe für Betriebsräte · Deutscher Gewerkschaftsbund</span>
+      </li>
+      <li>
+        <a href="https://scrumguides.org/scrum-guide.html" target="_blank">Scrum Guide 2020</a>
+        <span class="link-note">Schwaber &amp; Sutherland · Offizielle Referenz für Scrum-Rollen und Events</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Datenschutzrichtlinie</a>
+        <span class="link-note">Relevant für DSGVO Art. 28 (Auftragsverarbeitung) · anthropic.com</span>
+      </li>
+    </ul>
+
+    <h2>Methodische Quellen</h2>
+    <ul class="link-list">
+      <li>
+        Amy Edmondson — <em>The Fearless Organization</em> (Wiley, 2018)
+        <span class="link-note">Psychologische Sicherheit als Teamvoraussetzung · 7-Item-Skala für Messung</span>
+      </li>
+      <li>
+        Argyris &amp; Schön — <em>Organizational Learning II</em> (Addison-Wesley, 1996)
+        <span class="link-note">Double-Loop Learning · konzeptuelle Grundlage für Retro-Reflexionsebenen</span>
+      </li>
+      <li>
+        Marilyn Strathern (1997): „'Improving ratings': audit in the British University system"
+        <span class="link-note">Goodhart's Law in der Praxis · European Review 5(3)</span>
+      </li>
+      <li>
+        Lisanne Bainbridge (1983): „Ironies of Automation"
+        <span class="link-note">Automatica 19(6) · Grundlage für Pipeline-Kompetenz-Verlust durch KI-Delegation</span>
+      </li>
+    </ul>
+
+    <div class="callout amber">
+      <div class="callout-label">Rückmeldepfad</div>
+      <p>Teams, die echte Erfahrungen mit den Tools machen (was funktioniert, was nicht), können Feedback über das GitHub-Repository einbringen. Ziel: die Tools besser machen, nicht Feature-Requests sammeln.</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(1, document.querySelectorAll('.nav-pill')[1])">Zurück zum Schmerz-Check</button>
+      <button class="btn btn-ghost" onclick="goTo(0, document.querySelectorAll('.nav-pill')[0])">← Zum Anfang</button>
+    </div>
+
+    <div class="screen-footer">
+      Scrum AI Toolkit · Pre-Start-Modul · Version 1.0 · Mai 2026<br>
+      Yvonne Pöppelbaum
+    </div>
+  </div>
+
+</main>
+
+<footer style="border-top:1px solid var(--rule); padding:20px 48px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--ink-faint); line-height:1.8;">
+  Scrum AI Toolkit · Yvonne Pöppelbaum · Version 1.0 · Mai 2026<br>
+  Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/deed.de" style="color:var(--ink-faint);">CC BY 4.0</a> · Nutzung und Weitergabe erlaubt mit Namensnennung.<br>
+  Kontakt: Yvonne Pöppelbaum, Hamburg · <a href="https://github.com/poeppi" style="color:var(--ink-faint);">github.com/poeppi</a> · <a href="./impressum.html" style="color:var(--ink-faint);">Impressum</a>
+</footer>
+
+<script>
+  const screens = document.querySelectorAll('.screen');
+  const pills = document.querySelectorAll('.nav-pill');
+  const progressFill = document.getElementById('progress');
+  let currentScreen = 0;
+
+  function goTo(index, btn) {
+    screens.forEach(s => s.classList.remove('active'));
+    pills.forEach(p => p.classList.remove('active'));
+    screens[index].classList.add('active');
+    if (btn) btn.classList.add('active');
+    currentScreen = index;
+    progressFill.style.width = ((index + 1) / screens.length * 100) + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── PAIN ROUTING ──
+  const selectedCards = new Set();
+
+  function toggleCard(card) {
+    const cluster = card.dataset.cluster;
+    if (selectedCards.has(cluster)) {
+      selectedCards.delete(cluster);
+      card.classList.remove('selected');
+    } else {
+      selectedCards.add(cluster);
+      card.classList.add('selected');
+    }
+    updateResult();
+  }
+
+  function updateResult() {
+    const box = document.getElementById('result-box');
+    const heading = document.getElementById('result-heading');
+    const body = document.getElementById('result-body');
+    const label = document.getElementById('result-label');
+
+    if (selectedCards.size === 0) {
+      box.classList.remove('visible', 'warning-result');
+      return;
+    }
+
+    box.classList.add('visible');
+
+    const hasWarning = selectedCards.has('safety') || selectedCards.has('mgmt');
+    const toolClusters = ['retro','story','impediment','velocity'].filter(c => selectedCards.has(c));
+
+    // Warning overrides everything
+    if (hasWarning) {
+      box.classList.add('warning-result');
+      label.textContent = '⚠ Stopp-Signal erkannt';
+
+      let warnings = [];
+      if (selectedCards.has('safety')) {
+        warnings.push(`<p><strong>Psychologische Sicherheit fehlt.</strong> Kein Tool dieser Suite adressiert das. Ein erfahrener Facilitator oder Agile Coach ist der richtige erste Schritt — nicht ein KI-Werkzeug. Tools verstärken bestehende Dynamiken; sie reparieren keine kaputten.</p>`);
+      }
+      if (selectedCards.has('mgmt')) {
+        warnings.push(`<p><strong>Management-Reporting-Druck.</strong> VelocityLens und die anderen Tools sind explizit nicht als Reporting-Instrumente gebaut. In einem Kontext, in dem Velocity-Daten nach oben fließen sollen, würden diese Tools Goodhart-Dynamiken verstärken, nicht auflösen. Erst die Reporting-Frage klären — dann Tool.</p>`);
+      }
+
+      heading.textContent = toolClusters.length > 0
+        ? 'Vor den Tool-Empfehlungen: Diese Signale haben Vorrang.'
+        : 'Jetzt ist kein Tool-Einsatz ratsam.';
+      body.innerHTML = warnings.join('') + (toolClusters.length > 0
+        ? `<p style="margin-top:12px;font-size:13px;color:var(--ink-faint)">Wenn die Warnsignale ausgeräumt sind, kommen die Tool-Empfehlungen für eure weiteren Schmerzen.</p>`
+        : '');
+      return;
+    }
+
+    box.classList.remove('warning-result');
+    label.textContent = 'Empfehlung';
+
+    const toolMap = {
+      retro: { name: 'RetroMirror', why: 'Maßnahmen-Commit ist die häufigste Ursache für Retro-Frustration. Hier beginnen.' },
+      story: { name: 'Story Question Engine', why: 'Eine präzise Frage im Refinement spart mehrere Planungs-Stunden.' },
+      impediment: { name: 'ImpedimentRadar', why: 'Systematisches Tracking macht strukturelle Blocker sichtbar — was Daily-Scrums nicht leisten.' },
+      velocity: { name: 'VelocityLens', why: 'Erst mit Ereignis-Dokumentation wird Velocity erklärbar statt zufällig.' }
+    };
+
+    // Priority logic
+    const priorityOrder = ['retro', 'impediment', 'story', 'velocity'];
+    const ordered = priorityOrder.filter(c => toolClusters.includes(c));
+
+    if (ordered.length === 1) {
+      heading.textContent = `Startet mit ${toolMap[ordered[0]].name}.`;
+      body.innerHTML = `<p>${toolMap[ordered[0]].why}</p>
+        <div class="tool-sequence">
+          <div class="tool-step">
+            <span class="step-num">→</span>
+            <div><div class="step-tool">${toolMap[ordered[0]].name}</div>
+            <div class="step-why">${toolMap[ordered[0]].why}</div></div>
+          </div>
+        </div>`;
+    } else if (ordered.length === 2) {
+      heading.textContent = `Zwei Schmerzen — eine klare Reihenfolge.`;
+      body.innerHTML = `<div class="tool-sequence">` +
+        ordered.map((c, i) => `<div class="tool-step">
+          <span class="step-num">0${i+1}</span>
+          <div><div class="step-tool">${toolMap[c].name}</div>
+          <div class="step-why">${toolMap[c].why}</div></div>
+        </div>`).join('') +
+        `</div><p style="font-size:13px;color:var(--ink-faint);margin-top:8px">Drei Sprints mit ${toolMap[ordered[0]].name}, dann evaluieren — danach ${toolMap[ordered[1]].name} einführen.</p>`;
+    } else {
+      heading.textContent = `Viele Schmerzen — ein Einstieg.`;
+      body.innerHTML = `<div class="tool-sequence">
+        <div class="tool-step">
+          <span class="step-num">→</span>
+          <div><div class="step-tool">${toolMap[ordered[0]].name}</div>
+          <div class="step-why">Dieser Schmerz hat die meiste Hebelwirkung. Hier beginnen.</div></div>
+        </div>
+      </div>
+      <div class="consolidation-note">
+        <strong>Konsolidierungs-Hinweis:</strong> Ihr habt ${ordered.length} Schmerzpunkte markiert. Wer zu viel auf einmal verändern will, verändert am Ende nichts. Drei Sprints, ein Tool, dann evaluieren. Die anderen Schmerzen laufen nicht weg.
+      </div>`;
+    }
+  }
+
+  // ── CHECKLIST ──
+  function toggleCheck(box) {
+    box.classList.toggle('checked');
+  }
+
+  // ── COPY ──
+  function copyText(id, btn) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Kopiert ✓';
+      setTimeout(() => btn.textContent = 'Kopieren', 2000);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrum AI Toolkit — Startseite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F0E8;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-faint: #8A8078;
+    --rule: #D8D0C4;
+    --amber: #C8860A;
+    --amber-light: #FFF3D4;
+    --green-dark: #1C3A2E;
+    --green-mid: #2D5240;
+    --green-light: #E8F0EC;
+    --red-dark: #8B1A1A;
+    --red-light: #FDEAEA;
+    --blue-dark: #1A2E5A;
+    --blue-light: #EAF0FD;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .site-header .title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  /* ── MAIN ── */
+  .main { max-width: 900px; margin: 0 auto; padding: 64px 48px 100px; }
+
+  /* ── SUPPORT LINKS ── */
+  .support-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .support-card {
+    flex: 1;
+    min-width: 220px;
+    background: var(--green-light);
+    border: 1px solid var(--green-mid);
+    border-radius: 4px;
+    padding: 18px 22px;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: background .2s;
+  }
+  .support-card:hover { background: #d6e8dc; }
+  .support-card .card-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 4px;
+  }
+  .support-card .card-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .support-card .card-sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ── TOOL GRID ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+
+  .tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 72px;
+  }
+  @media (max-width: 640px) { .tool-grid { grid-template-columns: 1fr; } }
+
+  .tool-card {
+    background: white;
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .2s, transform .15s;
+  }
+  .tool-card:hover {
+    border-color: var(--green-mid);
+    transform: translateY(-2px);
+  }
+  .tool-card .tool-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .tool-card .tool-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .tool-card .tool-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .tool-card .tool-link {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--green-dark);
+    color: white;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    align-self: flex-start;
+    transition: opacity .2s;
+  }
+  .tool-card .tool-link:hover { opacity: .8; }
+  .tool-card .phase-lock-note {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    font-style: italic;
+  }
+
+  /* ── DIVIDER ── */
+  .rule { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+  /* ── EINORDNUNG ── */
+  .display-heading {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .display-heading em { font-style: italic; color: var(--green-mid); }
+
+  .sub-heading {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-top: 52px;
+    color: var(--ink);
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  p { margin-bottom: 16px; color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .callout {
+    border-left: 3px solid;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.amber { border-color: var(--amber); background: var(--amber-light); }
+  .callout.green { border-color: var(--green-mid); background: var(--green-light); }
+  .callout p { margin-bottom: 0; font-size: 14px; }
+  .callout .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .callout.amber .callout-label { color: var(--amber); }
+  .callout.green .callout-label { color: var(--green-mid); }
+
+  .meta-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    line-height: 1.8;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 20px 24px; flex-wrap: wrap; }
+    .main { padding: 40px 24px 80px; }
+    .display-heading { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="title">Scrum AI Toolkit</span>
+  <span class="wordmark">Yvonne Pöppelbaum</span>
+</header>
+
+<main class="main">
+
+  <!-- ── PRE-START + EINORDNUNG oben ── -->
+  <div class="support-row">
+    <a class="support-card" href="./einordnung.html">
+      <span class="card-label">Konzept &amp; Kontext</span>
+      <span class="card-title">Einordnung</span>
+      <span class="card-sub">Grenzen, Risiken, kritische Stimme, realistische Szenarien</span>
+    </a>
+    <a class="support-card" href="./scrum_ai_prestart.html">
+      <span class="card-label">Vor dem ersten Sprint</span>
+      <span class="card-title">Pre-Start-Modul</span>
+      <span class="card-sub">Schmerz-Check, Checkliste, Guardrails, Vorlagen für Betriebsrat und Team</span>
+    </a>
+  </div>
+
+  <!-- ── TOOLS ── -->
+  <p class="section-label">Vier Tools — direkt starten</p>
+
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tool-tag">Retrospektive</div>
+      <div class="tool-name">RetroMirror</div>
+      <p class="tool-desc">Strukturiert Retrospektiven in vier Pflichtphasen: Maßnahmen-Review, Team-Input, Reflexionsfrage, Maßnahmen-Commit. Ein optionaler KI-Spiegel analysiert Muster: erst nach dem Commit, nicht davor.</p>
+      <a class="tool-link" href="./retromirror/dist/index.html" target="_blank">Starten →</a>
+      <p class="phase-lock-note">KI-Button gesperrt bis Commit abgeschlossen</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-tag">Refinement</div>
+      <div class="tool-name">Story Question Engine</div>
+      <p class="tool-desc">Generiert genau eine Frage: die mit dem höchsten Klärungswert für das nächste Refinement-Gespräch. Erkennt automatisch vage Akzeptanzkriterien mit korrekter Syntax aber ohne testbare Aussage.</p>
+      <a class="tool-link" href="./story-question-engine/dist/index.html" target="_blank">Starten →</a>
+      <p class="phase-lock-note">KI-Button gesperrt bis Team-Hypothese eingetragen</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-tag">Impediments</div>
+      <div class="tool-name">ImpedimentRadar</div>
+      <p class="tool-desc">Erfasst Impediments, ordnet sie einer fixen Fünf-Kategorien-Taxonomie zu und macht Muster über Sprints hinweg sichtbar. Erkennt Impediments, die trotz Gelöst-Markierung ähnlich wiederkehren.</p>
+      <a class="tool-link" href="./impediment-radar/dist/index.html" target="_blank">Starten →</a>
+      <p class="phase-lock-note">Kein Personenbezug, keine automatische Eskalation</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-tag">Velocity</div>
+      <div class="tool-name">VelocityLens</div>
+      <p class="tool-desc">Verknüpft Velocity-Daten mit dokumentierten Sprint-Ereignissen und generiert Hypothesen; explizit als Hypothesen, nicht als Erklärungen. Erkennt Muster, die auf Goodhart-Optimierung hindeuten.</p>
+      <a class="tool-link" href="./velocity-lens/dist/index.html" target="_blank">Starten →</a>
+      <p class="phase-lock-note">KI-Button gesperrt bis Team-Einschätzung vorliegt</p>
+    </div>
+
+  </div>
+
+  <p class="meta-note">
+    Scrum AI Toolkit · Yvonne Pöppelbaum · Version 1.0 · Mai 2026<br>
+    Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/deed.de" style="color:var(--ink-faint);">CC BY 4.0</a> · Nutzung und Weitergabe erlaubt mit Namensnennung.<br>
+    Kontakt: Yvonne Pöppelbaum, Hamburg · <a href="https://github.com/poeppi" style="color:var(--ink-faint);">github.com/poeppi</a> · <a href="./impressum.html" style="color:var(--ink-faint);">Impressum</a>
+  </p>
+
+</main>
+
+</body>
+</html>
